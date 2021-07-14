@@ -8,16 +8,19 @@ edition = "2018"
 [lib]
 path = "src/lib.rs"
 
-[[bing]]
+[[bin]]
 path = "src/main.rs"
 name = "zero2prod"
 
 [dependencies]
 actix-web = "=4.0.0-beta.8"
 actix-http = "=3.0.0-beta.8"
-actix-rt = "2.2.0"
-serde = { version = "1.0.126", features = ["derive"] }
-config = "0.11.0"
+serde = "1.0.126"
+config = { version = "0.11.0", deafult-features = false, features = ["yaml"] }
+uuid = { version  = "0.8.1", features = ["v4"]}
+chrono = "0.4.15"
+env_logger = "0.8.4"
+log = "0.4.14"
  
 [dependencies.sqlx]
 version = "0.5.5"
@@ -32,5 +35,6 @@ features = [
 ]
 
 [dev-dependencies]
+actix-rt = "2.2.0"
 reqwest = "0.11"
 tokio = "1"
